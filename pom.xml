@@ -18,7 +18,8 @@
 		<module>product-service</module>
 		<module>order-service</module>
 		<module>user-service</module>
-	</modules>
+        <module>CommandPattern</module>
+    </modules>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

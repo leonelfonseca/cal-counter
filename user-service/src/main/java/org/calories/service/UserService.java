@@ -17,17 +17,16 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        return userRepository.findById(id).orElse(null);
+        return userRepository.findById(id);
     }
 
     public User createNewUser(String username) {
-        User newUser = new User();
-        newUser.setUsername(username);
+        User newUser = new User(username);
         return userRepository.save(newUser);
     }
 
     public User updateUser(Long userId, String newUsername) {
-        User existingUser = userRepository.findById(userId).orElse(null);
+        User existingUser = userRepository.findById(userId);
 
         if (existingUser != null) {
             existingUser.setUsername(newUsername);
@@ -39,6 +38,6 @@ public class UserService {
     }
 
     public void deleteById(Long id) {
-        userRepository.deleteById(id);
+        userRepository.delete(id);
     }
 }
