@@ -28,6 +28,14 @@ public class OrderRepository {
         return jdbcTemplate.query(query, this::mapToOrder);
     }
 
+
+
+    public List<Order> findAllEmployeeOrders(Long employeeId) {
+        String query = "SELECT * FROM orders WHERE employee_id = ?";
+        return jdbcTemplate.query(query, new Object[]{employeeId}, this::mapToOrder);
+    }
+
+
     public Order save(Order order) {
         String query = "INSERT INTO orders (last_updated, total_calories) VALUES (CURRENT_DATE, ?, ?)";
         jdbcTemplate.update(query, order.getTotalCalories());

@@ -17,7 +17,7 @@
 	<modules>
 		<module>product-service</module>
 		<module>order-service</module>
-		<module>user-service</module>
+		<module>employee-service</module>
 	</modules>
 	<properties>
 		<java.version>17</java.version>
