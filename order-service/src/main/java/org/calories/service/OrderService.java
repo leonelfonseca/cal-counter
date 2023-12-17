@@ -9,6 +9,7 @@ import java.util.List;
 
 @Service
 public class OrderService {
+
     @Autowired
     private OrderRepository orderRepository;
 
@@ -17,7 +18,7 @@ public class OrderService {
     }
 
     public Order findById(Long id) {
-        return orderRepository.findById(id).orElse(null);
+        return orderRepository.findById(id);
     }
 
     public Order createOrder(Order order) {
@@ -25,7 +26,7 @@ public class OrderService {
     }
 
     public Order updateOrder(Long orderId, Order order) {
-        Order existingOrder = orderRepository.findById(orderId).orElse(null);
+        Order existingOrder = orderRepository.findById(orderId);
 
         if (existingOrder != null) {
             return orderRepository.save(existingOrder);
@@ -34,7 +35,8 @@ public class OrderService {
         }
     }
 
+
     public void deleteById(Long id) {
-        orderRepository.deleteById(id);
+        orderRepository.delete(id);
     }
 }

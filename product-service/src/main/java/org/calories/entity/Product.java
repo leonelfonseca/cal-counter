@@ -1,9 +1,9 @@
-
 package org.calories.entity;
 
-import jakarta.persistence.*;
 import org.calories.enums.FoodType;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Product {
 
     private Long id;
@@ -14,6 +14,17 @@ public class Product {
         this.calories = calories;
         this.foodType = foodType;
     }
+
+    public Product(Long id, String name, String calories, FoodType foodType) {
+        this.id = id;
+        this.name = name;
+        this.calories = calories;
+        this.foodType = foodType;
+    }
+
+    public Product() {
+    }
+
 
     public Long getId() {
         return id;
